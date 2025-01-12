@@ -1,6 +1,10 @@
 .composition {
     position: relative;
-    height: 500px;
+    height: 50rem;
+
+    @include respond(tab-port) {
+        height: 20rem;
+    }
     &__img {
         position: absolute;
         width: 55%;
@@ -10,17 +14,40 @@
         outline-offset: 1.2rem;
         transition: all 0.3s ease-out;
 
+        @include respond(tab-port) {
+            float: left;
+            width: 33.333333%;
+            position: relative;
+        }
+
         &--p1 {
             top: -2rem;
             left: 0;
+
+            @include respond(tab-port) {
+                top: 0;
+                transform: scale(1.2);
+            }
         }
         &--p2 {
             top: 2rem;
             right: 0rem;
+
+            @include respond(tab-port) {
+                top: -1rem;
+                transform: scale(1.3);
+                z-index: 100;
+            }
         }
         &--p3 {
             top: 10rem;
             left: 20%;
+
+            @include respond(tab-port) {
+                top: 1rem;
+                transform: scale(1.1);
+                left: 0;
+            }
         }
 
         &:hover {

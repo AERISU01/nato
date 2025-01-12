@@ -1,6 +1,11 @@
 .form {
     &__group:not(:last-child) {
         margin-bottom: 2.5rem;
+
+        @include respond(phone) {
+            width: 100%;
+            margin-bottom: 0;
+        }
         button {
             font-family: inherit;
         }
@@ -19,6 +24,10 @@
         border-radius: 3px;
         border-bottom: 3px solid transparent;
         transition: border-bottom 0.2s ease-out;
+
+        @include respond(phone) {
+            width: 100%;
+        }
 
         display: block;
 
@@ -56,6 +65,11 @@
         width: 49%;
         display: inline-block;
         margin-bottom: 4rem;
+
+        @include respond(phone) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-label {

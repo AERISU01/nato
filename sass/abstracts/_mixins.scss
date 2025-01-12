@@ -7,3 +7,35 @@
         clear: both;
     }
 }
+
+// MEDIA QUERY MIXINS
+
+/*
+
+<600px  -  手机
+<900px   -  小平板
+<1200px   -  大平板
+[1200px, 1800px]-  base
+>1800px  -  大屏幕
+
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 600px) {
+            @content;
+        }
+    } @else if $breakpoint == tab-port {
+        @media (max-width: 900px) {
+            @content;
+        }
+    } @else if $breakpoint == tab-land {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    } @else if $breakpoint == big-desktop {
+        @media (min-width: 1800px) {
+            @content;
+        }
+    }
+}

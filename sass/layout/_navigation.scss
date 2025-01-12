@@ -17,6 +17,11 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+
+        @include respond(tab-port) {
+            top: 3rem;
+            right: 3rem;
+        }
     }
     &__background {
         width: 6rem;
@@ -30,6 +35,11 @@
         // transform: scale(0);
 
         transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+
+        @include respond(tab-port) {
+            top: 3.5rem;
+            right: 3.5rem;
+        }
     }
     &__nav {
         height: 100vh;

@@ -17,6 +17,27 @@
         transform: scale(1);
     }
 
+    &__content {
+        width: 75%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+        border-radius: 3px;
+        height: 70%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        z-index: 6000;
+        display: table;
+
+        @include respond(tab-port) {
+            width: 90%;
+            height: 20%;
+        }
+
+        transition: all 0.5s 0.2s;
+    }
+
     &:target &__content {
         transform: translate(-50%, -50%) scale(1);
     }
@@ -33,45 +54,50 @@
             text-decoration: none;
             display: inline-block;
             transition: all 0.2s;
+
+            @include respond(tab-land) {
+                font-size: 3.5rem;
+                top: 2rem;
+                right: 2rem;
+            }
         }
 
         &:hover {
             color: $color-primary;
         }
     }
-    &__content {
-        width: 75%;
-        background-color: $color-white;
-        box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
-        border-radius: 3px;
-
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        z-index: 6000;
-        display: table;
-
-        transition: all 0.5s 0.2s;
-    }
 
     &__left {
         width: 33.3333%;
-        height: 50%;
+        height: 100%;
         display: table-cell;
+
+        @include respond(tab-port) {
+            display: none;
+        }
     }
 
     &__right {
         width: 66.6667%;
-        height: 50%;
-        display: table-cell;
+        height: 100%;
         vertical-align: middle;
         padding: 3rem 5rem;
+        display: table-cell;
+
+        @include respond(tab-land) {
+            padding: 2rem 3rem;
+        }
+
+        @include respond(tab-port) {
+            padding: 3rem;
+        }
     }
 
     &__img {
         display: block;
         width: 100%;
+        height: 50%;
+        object-fit: cover;
     }
 
     &__text {
@@ -83,5 +109,11 @@
         column-rule: 1px solid $color-grey-light-2;
 
         hyphens: auto;
+
+        @include respond(tab-port) {
+            column-count: 1;
+            column-gap: 2rem;
+            font-size: 1.2rem;
+        }
     }
 }
